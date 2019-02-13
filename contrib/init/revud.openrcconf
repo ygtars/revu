@@ -1,0 +1,26 @@
+# /etc/conf.d/revud: config file for /etc/init.d/revud
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/revu/revu.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/revud"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/revud.pid"
+
+# Where to write revud data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/revud"
+
+# User and group to own revud process
+#BITCOIND_USER="revu"
+#BITCOIND_GROUP="revu"
+
+# Path to revud executable
+#BITCOIND_BIN="/usr/bin/revud"
+
+# Nice value to run revud under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

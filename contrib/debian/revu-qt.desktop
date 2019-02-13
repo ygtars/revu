@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Revu
+Comment=Revu P2P Cryptocurrency
+Comment[fr]=Revu, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Revu, eşten eşe kriptografik sanal para birimi
+Exec=revu-qt %u
+Terminal=false
+Type=Application
+Icon=revu128
+MimeType=x-scheme-handler/revu;
+Categories=Office;Finance;

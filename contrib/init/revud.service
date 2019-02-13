@@ -1,0 +1,26 @@
+[Unit]
+Description=Revu's distributed currency daemon
+After=network.target
+
+[Service]
+User=revu
+Group=revu
+
+Type=forking
+PIDFile=/var/lib/revud/revud.pid
+
+ExecStart=/usr/bin/revud -daemon -pid=/var/lib/revud/revud.pid \
+          -conf=/etc/revu/revu.conf -datadir=/var/lib/revud
+
+ExecStop=-/usr/bin/revu-cli -conf=/etc/revu/revu.conf \
+         -datadir=/var/lib/revud stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

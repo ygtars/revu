@@ -1,0 +1,11 @@
+[Protocol]
+exec=revu-qt '%u'
+protocol=revu
+input=none
+output=none
+helper=true
+listing=
+reading=false
+writing=false
+makedir=false
+deleting=false
