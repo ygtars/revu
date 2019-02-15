@@ -40,7 +40,7 @@ script: |
   FAKETIME_PROGS="ar ranlib date dmg genisoimage"
   export QT_RCC_TEST=1
   export GZIP="-9n"
-  export TAR_OPTrevuS="--mtime="$REFERENCE_DATE\\\ $REFERENCE_TIME""
+  export TAR_OPTIONS="--mtime="$REFERENCE_DATE\\\ $REFERENCE_TIME""
   export TZ="UTC"
   export BUILD_DIR=`pwd`
   mkdir -p ${WRAP_DIR}
@@ -50,7 +50,7 @@ script: |
     mkdir -p ${BASE_CACHE} ${SOURCES_PATH}
   fi
   export ZERO_AR_DATE=1
-  functrevu create_global_faketime_wrappers {
+  function create_global_faketime_wrappers {
   for prog in ${FAKETIME_PROGS}; do
     echo '#!/bin/bash' > ${WRAP_DIR}/${prog}
     echo "REAL=\`which -a ${prog} | grep -v ${WRAP_DIR}/${prog} | head -1\`" >> ${WRAP_DIR}/${prog}
@@ -60,7 +60,7 @@ script: |
     chmod +x ${WRAP_DIR}/${prog}
   done
   }
-  functrevu create_per-host_faketime_wrappers {
+  function create_per-host_faketime_wrappers {
   for i in $HOSTS; do
     for prog in ${FAKETIME_HOST_PROGS}; do
         echo '#!/bin/bash' > ${WRAP_DIR}/${i}-${prog}
